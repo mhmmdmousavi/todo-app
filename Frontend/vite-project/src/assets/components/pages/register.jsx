@@ -21,9 +21,10 @@ export default function Register() {
 async function submitRegister(user){
     try {
         setIsLoading(true)
-        const response = await client.post("/register", {email: user.email, username: user.username, password: user.password})
-        if (response.status === 200) {
-            navigate("/")
+        const response = await client.post("accounts/register/", {email: user.email, username: user.username, password: user.password})
+        if (response.status === 201) {
+            // navigate("")
+            window.location.href = "/";
         }
     } catch (error) {
         console.log(error);
@@ -38,12 +39,12 @@ const navigate = useNavigate()
 // }, [email, username, password]);
 
   return (
-    <div className="flex flex-col items-center gap-6 m-10 bg-white rounded-2xl p-4">
+    <div className="flex flex-col items-center gap-6 m-10 bg-sky-200 rounded-2xl p-4">
         <h1 className="text-3xl font-bold">REGSTER</h1>
         <form onSubmit={handleSubmit(submitRegister)} className="flex flex-col gap-4">
-            <input {...register("email")} className="bg-gray-200 border rounded-xl p-2" type="text" placeholder="email"/>
-            <input {...register("username")} className="bg-gray-200 border rounded-xl p-2" type="text" placeholder="username"/>
-            <input {...register("password")} className="bg-gray-200 border rounded-xl p-2" type="password" placeholder="password"/>
+            <input {...register("email")} className="bg-white border rounded-xl p-2" type="text" placeholder="email"/>
+            <input {...register("username")} className="bg-white border rounded-xl p-2" type="text" placeholder="username"/>
+            <input {...register("password")} className="bg-white border rounded-xl p-2" type="password" placeholder="password"/>
             <button className="bg-green-200 p-2 rounded-xl">REGISTER</button>
         </form>
         <p>If you have an account click 
