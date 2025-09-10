@@ -41,7 +41,7 @@ export default function Todos() {
             <h1 className="text-4xl font-bold">Todo <span className="text-green-300">List</span></h1>
             <RiLogoutBoxLine onClick={logOut} className="text-2xl absolute left-0 top-0"/>
             <div className="flex flex-row w-10/12 items-center justify-center gap-2">
-                <textarea value={newTodo} onChange={(e)=> setNewTodo(e.target.value)} className={`border pl-2 rounded-4xl w-10/12" type="text" placeholder="Enter text here `} placeholder="Enter your task here"/>
+                <textarea value={newTodo} onChange={(e)=> setNewTodo(e.target.value)} className={`border bg-white pl-2 rounded-4xl w-10/12" type="text" placeholder="Enter text here `} placeholder="Enter your task here"/>
                 <button onClick={handleAdd} className="text-4xl"><FaCirclePlus /></button>
             </div>
             <ul className="flex flex-col-reverse items-center gap-2 w-10/12 ">
